@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register — INES Workshop 2027</title>
+<meta name="description" content="Register for the INES Workshop, 14–15 January 2027, online and free to attend." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+/* Same tokens as index.html. If you change one, change both —
+   or move this block into assets/ines.css and link it from each page. */
+:root {
+  --slate: #326282; --slate-deep: #24475e; --slate-light: #667e91;
+  --terracotta: #e4643c; --amber: #e3831c;
+  --paper: #f9f6f3; --card: #fffbf6; --tan: #f2e8dd;
+  --ink: #222222; --body: #4a4a4a; --rule: #e3dbd2;
+  --shell: 1040px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--body);
+  font-family: "Open Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2 { font-family: Roboto, system-ui, sans-serif; color: var(--ink); line-height: 1.15; margin: 0; }
+a { color: var(--amber); }
+a:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
+.shell { max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
+
+.masthead { background: var(--card); border-bottom: 1px solid var(--rule); }
+.masthead .shell { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 14px 20px; }
+.wordmark {
+  font-family: Roboto, sans-serif; font-weight: 700; letter-spacing: .14em;
+  font-size: 20px; color: var(--terracotta); text-decoration: none;
+}
+.wordmark span { display: block; font-size: 10px; letter-spacing: .1em; font-weight: 400; color: var(--slate-light); }
+.masthead nav { margin-left: auto; display: flex; gap: 22px; flex-wrap: wrap; }
+.masthead nav a { color: var(--slate); text-decoration: none; font-size: 15px; }
+.masthead nav a:hover { color: var(--terracotta); }
+
+.banner { background: var(--slate-deep); color: #fff; padding: 48px 0; }
+.banner h1 { color: #fff; font-size: clamp(1.9rem, 4.4vw, 2.7rem); font-weight: 700; }
+.banner p { max-width: 56ch; margin: 14px 0 0; color: #d9e3ea; }
+
+main { padding: 48px 0 72px; }
+.formwrap { background: var(--card); border: 1px solid var(--rule); padding: 10px; }
+iframe { width: 100%; min-height: 1200px; border: 0; display: block; }
+.fallback { max-width: 62ch; margin-top: 26px; font-size: 15.5px; color: var(--slate); }
+
+footer { background: var(--slate-deep); color: #c3d2db; padding: 36px 0; font-size: 15px; }
+footer a { color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="./">INES<span>International Network for Engineering Studies</span></a>
+    <nav>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#lightning">Lightning talks</a>
+      <a href="index.html#join">Join INES</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banner">
+  <div class="shell">
+    <h1>Register</h1>
+    <p>
+      The workshop is online and free. Registering tells us you are coming and lets us send
+      you the joining link and the final program. It takes under a minute.
+    </p>
+  </div>
+</div>
+
+<main>
+  <div class="shell">
+    <div class="formwrap">
+      <!-- Replace REGISTRATION_FORM_ID with the id from your registration form's
+           live link, keeping ?embedded=true on the end. -->
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfZqWWB9a-bmuOe6tDL9aciHSm_w54Pv0Zdc3nGVNN9mXabmA/viewform?embedded=true"
+        title="INES Workshop 2027 registration form"
+        loading="lazy">Loading…</iframe>
+    </div>
+    <p class="fallback">
+      If the form does not load here, it is also at
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZqWWB9a-bmuOe6tDL9aciHSm_w54Pv0Zdc3nGVNN9mXabmA/viewform">this direct link</a>.
+      Proposing a lightning talk is a
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqRc3mN7wsiHYuuI1reouCJeOmIASyJoB5PWE5zGeJpCZpxg/viewform">separate form</a>.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">
+    INES Workshop 2027 · 14–15 January 2027 · Online ·
+    <a href="https://inesweb.org">inesweb.org</a>
+  </div>
+</footer>
+
+</body>
+</html>

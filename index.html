@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>INES Workshop 2027 — Engineering and Existential Threats</title>
+<meta name="description" content="A two-day online workshop of the International Network for Engineering Studies, January 14–15, 2027, 10:00–13:00 US Eastern both days. Free to attend." />
+<link rel="canonical" href="https://rhearty1.github.io/ines-workshop-2027/" />
+
+<!-- Open Graph / social preview. Replace the URL and add assets/social-card.png (1200x675) when you have one. -->
+<meta property="og:site_name" content="International Network for Engineering Studies" />
+<meta property="og:title" content="INES Workshop 2027 — Engineering and Existential Threats" />
+<meta property="og:description" content="Two days online, January 14–15, 2027. Paper prize, lightning talks, two panels, a book talk. Free to attend." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rhearty1.github.io/ines-workshop-2027/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "INES Workshop 2027: Engineering and Existential Threats",
+  "startDate": "2027-01-14T10:00:00-05:00",
+  "endDate": "2027-01-15T13:00:00-05:00",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": { "@type": "VirtualLocation", "url": "https://REPLACE-USERNAME.github.io/ines-workshop-2027/" },
+  "organizer": { "@type": "Organization", "name": "International Network for Engineering Studies", "url": "https://inesweb.org" },
+  "isAccessibleForFree": true
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   INES tokens — sampled from the INES logo file and inesweb.org,
+   not invented. Change them here and the whole site follows.
+   ============================================================ */
+:root {
+  --slate:        #326282;  /* logo network mark — structural color   */
+  --slate-deep:   #24475e;  /* darker band                            */
+  --slate-light:  #667e91;  /* logo secondary                         */
+  --terracotta:   #e4643c;  /* logo wordmark — accent only            */
+  --amber:        #e3831c;  /* inesweb.org link color                 */
+  --paper:        #f9f6f3;  /* inesweb.org page background            */
+  --card:         #fffbf6;  /* inesweb.org card background            */
+  --tan:          #f2e8dd;  /* inesweb.org warm tint                  */
+  --ink:          #222222;  /* headings                               */
+  --body:         #4a4a4a;  /* body text                              */
+  --rule:         #e3dbd2;
+
+  --measure: 64ch;
+  --shell: 1040px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--body);
+  font-family: "Open Sans", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: Roboto, system-ui, sans-serif;
+  color: var(--ink);
+  line-height: 1.15;
+  margin: 0;
+}
+
+a { color: var(--amber); }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+.shell { max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
+.prose { max-width: var(--measure); }
+
+/* ---------- masthead ---------- */
+.masthead {
+  background: var(--card);
+  border-bottom: 1px solid var(--rule);
+}
+.masthead .shell {
+  display: flex; align-items: baseline; gap: 16px;
+  flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px;
+}
+.wordmark {
+  font-family: Roboto, sans-serif; font-weight: 700;
+  letter-spacing: .14em; font-size: 20px;
+  color: var(--terracotta); text-decoration: none;
+}
+.wordmark span {
+  display: block; font-size: 10px; letter-spacing: .1em;
+  font-weight: 400; color: var(--slate-light);
+}
+.masthead nav { margin-left: auto; display: flex; gap: 22px; flex-wrap: wrap; }
+.masthead nav a {
+  color: var(--slate); text-decoration: none; font-size: 15px;
+}
+.masthead nav a:hover { color: var(--terracotta); }
+
+/* ---------- hero ---------- */
+.hero {
+  background: var(--slate-deep);
+  color: #fff;
+  padding: 72px 0 0;
+}
+.hero h1 {
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  max-width: 18ch;
+  letter-spacing: -0.015em;
+}
+.hero .standfirst {
+  max-width: 54ch; margin-top: 20px;
+  color: #d9e3ea; font-size: 1.07rem;
+}
+
+/* The date block is the hero's real subject: a time, in many zones. */
+.whenblock {
+  margin-top: 40px;
+  border-top: 3px solid var(--terracotta);
+  background: rgba(255,255,255,.055);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.whenblock > div { padding: 22px 24px; }
+.whenblock > div + div { border-left: 1px solid rgba(255,255,255,.14); }
+@media (max-width: 640px) {
+  .whenblock > div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.14); }
+}
+.whenblock dt {
+  font-size: 13px; color: var(--slate-light);
+  color: #9fb4c2; margin-bottom: 4px;
+}
+.whenblock dd {
+  margin: 0; font-family: Roboto, sans-serif;
+  font-size: 1.22rem; font-weight: 500; color: #fff;
+}
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  padding: 28px 0 56px;
+}
+
+.btn {
+  display: inline-block; padding: 13px 24px;
+  font-family: Roboto, sans-serif; font-weight: 500; font-size: 16px;
+  text-decoration: none; border: 2px solid transparent;
+  transition: background-color .15s, color .15s;
+}
+.btn-primary { background: var(--terracotta); color: #fff; }
+.btn-primary:hover { background: #c9502b; }
+.btn-ghost { border-color: #7d99aa; color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.1); }
+
+/* ---------- sections ---------- */
+section { padding: 64px 0; }
+section + section { border-top: 1px solid var(--rule); }
+section h2 {
+  font-size: 1.65rem; font-weight: 700; margin-bottom: 18px;
+}
+section p + p { margin-top: 1em; }
+
+/* ---------- program ---------- */
+.tzbar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  background: var(--tan); padding: 14px 18px; margin-bottom: 28px;
+  font-size: 15px;
+}
+.tzbar button {
+  font: inherit; font-family: Roboto, sans-serif;
+  background: var(--card); color: var(--slate);
+  border: 1px solid var(--slate-light); padding: 7px 15px; cursor: pointer;
+}
+.tzbar button[aria-pressed="true"] {
+  background: var(--slate); color: #fff; border-color: var(--slate);
+}
+.tz-note { color: var(--slate); }
+
+.day { margin-bottom: 44px; }
+.day > h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--slate);
+  padding-bottom: 8px; border-bottom: 2px solid var(--slate);
+  margin-bottom: 0;
+}
+.slot {
+  display: grid; grid-template-columns: 170px 1fr;
+  gap: 0 28px; padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 680px) { .slot { grid-template-columns: 1fr; gap: 6px; } }
+.slot-time {
+  font-family: Roboto, sans-serif; font-weight: 500;
+  color: var(--ink); font-size: 15px;
+}
+.slot-time .secondary {
+  display: block; font-weight: 400; color: var(--slate-light); font-size: 13.5px;
+}
+.slot h4 {
+  margin: 0 0 6px; font-family: Roboto, sans-serif;
+  font-size: 1.12rem; font-weight: 500; color: var(--ink);
+}
+.slot p { margin: 0; font-size: 15.5px; max-width: 58ch; }
+.slot .who {
+  margin-top: 8px; font-size: 14.5px; color: var(--slate);
+}
+.tbd {
+  display: inline-block; font-size: 12px; font-family: Roboto, sans-serif;
+  background: var(--tan); color: var(--slate); padding: 2px 8px; margin-left: 6px;
+  vertical-align: 2px;
+}
+
+/* ---------- call-to-action panels ---------- */
+.panel {
+  background: var(--card); border: 1px solid var(--rule);
+  border-left: 4px solid var(--terracotta);
+  padding: 28px 30px;
+}
+.panel h2 { font-size: 1.35rem; }
+.panel + .panel { margin-top: 20px; }
+
+.rates { list-style: none; padding: 0; margin: 18px 0 0; }
+.rates li {
+  display: flex; gap: 14px; padding: 9px 0;
+  border-top: 1px solid var(--rule); font-size: 15.5px;
+}
+.rates li:last-child { border-bottom: 1px solid var(--rule); }
+.rates .amount {
+  font-family: Roboto, sans-serif; font-weight: 700;
+  color: var(--slate); min-width: 62px;
+}
+
+/* ---------- footer ---------- */
+footer {
+  background: var(--slate-deep); color: #c3d2db;
+  padding: 44px 0; font-size: 15px;
+}
+footer a { color: #fff; }
+footer .shell { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+</style>
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="./">INES<span>International Network for Engineering Studies</span></a>
+    <nav>
+      <a href="#program">Program</a>
+      <a href="#attend">Attend</a>
+      <a href="#lightning">Lightning talks</a>
+      <a href="#join">Join INES</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="shell">
+    <h1>Engineering and Existential Threats</h1>
+    <p class="standfirst">
+      Artificial intelligence, climate change, pandemics, and the erosion of democratic
+      institutions are routinely called existential threats. Engineers design, operate,
+      and evaluate the systems at the center of all of them. Over two days we ask where
+      we are, and what we can do.
+    </p>
+
+    <dl class="whenblock">
+      <div>
+        <dt>Dates</dt>
+        <dd>14–15 January 2027</dd>
+      </div>
+      <div>
+        <dt>Each day</dt>
+        <dd>10:00–13:00 US Eastern</dd>
+      </div>
+      <div>
+        <dt id="tz-label">In your time zone</dt>
+        <dd id="tz-hero">—</dd>
+      </div>
+      <div>
+        <dt>Where &amp; cost</dt>
+        <dd>Online · Free</dd>
+      </div>
+    </dl>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="register.html">Register</a>
+      <a class="btn btn-ghost" href="#lightning">Propose a lightning talk</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="shell prose">
+    <h2>About the workshop</h2>
+    <p>
+      The International Network for Engineering Studies brings together scholars who study
+      engineers and engineering — historians, sociologists, anthropologists, philosophers,
+      engineering educators, and engineers themselves. This workshop is our annual gathering,
+      held online so that members on several continents can take part.
+    </p>
+    <p>
+      Much of the public argument about existential risk has been carried by philosophers and
+      social scientists. Engineers are rarely at that table, though they build and run the
+      systems in question. The first day takes stock of where we are. The second turns from
+      diagnosis to action, with colleagues from engineering practice and engineering education.
+    </p>
+  </div>
+</section>
+
+<section id="program">
+  <div class="shell">
+    <h2>Program</h2>
+
+    <div class="tzbar">
+      <span>Show times in</span>
+      <button type="button" id="btn-et" aria-pressed="true">US Eastern</button>
+      <button type="button" id="btn-local" aria-pressed="false">My time zone</button>
+      <span class="tz-note" id="tz-detected"></span>
+    </div>
+
+    <div id="program-out"></div>
+  </div>
+</section>
+
+<section id="attend">
+  <div class="shell prose">
+    <div class="panel">
+      <h2>Attending</h2>
+      <p>
+        The workshop is free and online. Register so we can send you the joining link and the
+        final program; it takes under a minute and we ask only for your name, email, and
+        affiliation.
+      </p>
+      <p style="margin-top:18px"><a class="btn btn-primary" href="register.html">Register</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="lightning">
+  <div class="shell prose">
+    <div class="panel">
+      <h2>Propose a lightning talk</h2>
+      <p>
+        One session on 14 January is given over to lightning talks of about seven minutes each.
+        Tell us what you are working on, a question you are stuck on, or a project you want
+        collaborators for. Proposals are due <strong>Friday, 5 December 2026</strong>.
+      </p>
+      <p>
+        If you cannot make the live session because of the hour, you can send a recording
+        instead — say so on the form.
+      </p>
+      <p style="margin-top:18px">
+        <a class="btn btn-primary"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSeqRc3mN7wsiHYuuI1reouCJeOmIASyJoB5PWE5zGeJpCZpxg/viewform">
+          Propose a talk
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="shell prose">
+    <h2>Join INES</h2>
+    <p>
+      You do not need to be a member to attend. But membership is how this work gets paid for,
+      and it includes a one-year subscription to our journal,
+      <em><a href="https://www.tandfonline.com/journals/test20">Engineering Studies</a></em>.
+      Memberships run the calendar year, so one taken out now covers 2027.
+    </p>
+    <ul class="rates">
+      <li><span class="amount">$45</span><span>Reduced rate — students, retirees, those on reduced income, and scholars from non-OECD countries</span></li>
+      <li><span class="amount">$60</span><span>Regular rate</span></li>
+      <li><span class="amount">$100</span><span>Supporting rate — helps subsidize reduced-rate memberships for others</span></li>
+    </ul>
+    <p style="margin-top:22px"><a class="btn btn-primary" href="https://inesweb.org/join">Join or renew at inesweb.org</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div>
+      <strong style="color:#fff">INES Workshop 2027</strong><br />
+      14–15 January 2027 · Online<br />
+      Questions: <a href="mailto:rhearty1@jhu.edu">rhearty1@jhu.edu</a>
+    </div>
+    <div>
+      <a href="https://inesweb.org">inesweb.org</a><br />
+      <a href="https://www.tandfonline.com/journals/test20">Engineering Studies</a><br />
+      <a href="https://inesweb.org/join">Join INES</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   THE PROGRAM. This is the only part you edit week to week.
+   Times are stored in UTC so the time-zone conversion works.
+   January US Eastern is UTC-5, so 10:00 ET = 15:00Z.
+   ============================================================ */
+var PROGRAM = [
+  {
+    day: "Thursday 14 January 2027",
+    sessions: [
+      {
+        start: "2027-01-14T15:00:00Z", end: "2027-01-14T16:00:00Z",
+        title: "INES Best Paper Award",
+        blurb: "The 2026 prize winners present their work, with time for questions.",
+        who: "Kristin Bartlett (winner); Antoine Bouzin and Marwa Koheji (commended)",
+        tbd: false
+      },
+      {
+        start: "2027-01-14T16:00:00Z", end: "2027-01-14T17:00:00Z",
+        title: "Lightning talks",
+        blurb: "Short talks of about seven minutes from across the INES community. Proposals are open until 5 December.",
+        who: "Open call",
+        tbd: false
+      },
+      {
+        start: "2027-01-14T17:00:00Z", end: "2027-01-14T18:00:00Z",
+        title: "Where are we?",
+        blurb: "A scene-setting panel on how engineers currently assess existential threats — AI, climate, pandemics — and how those assessments connect to the rise of authoritarianism.",
+        who: "Aristotle Tympas and colleagues, Observatory for Existential Threats",
+        tbd: true
+      }
+    ]
+  },
+  {
+    day: "Friday 15 January 2027",
+    sessions: [
+      {
+        start: "2027-01-15T15:00:00Z", end: "2027-01-15T16:00:00Z",
+        title: "What can we do?",
+        blurb: "A second panel, with colleagues from engineering practice and engineering education, turning from diagnosis to action.",
+        who: "Panelists to be announced",
+        tbd: true
+      },
+      {
+        start: "2027-01-15T16:00:00Z", end: "2027-01-15T17:00:00Z",
+        title: "Book talk: The Science of Repair",
+        blurb: "Gwen Ottinger on The Science of Repair: How People Who Believe in Facts Can Build a Better Future (Oxford University Press, 2026), and on where the argument goes next.",
+        who: "Gwen Ottinger, Drexel University",
+        tbd: false
+      },
+      {
+        start: "2027-01-15T17:00:00Z", end: "2027-01-15T18:00:00Z",
+        title: "What next?",
+        blurb: "A closing discussion: future research, funding, careers, and what INES should take on in the coming year.",
+        who: "All participants",
+        tbd: false
+      }
+    ]
+  }
+];
+
+/* ---------- rendering + time-zone conversion ---------- */
+(function () {
+  var ET = "America/New_York";
+  var localZone = "UTC";
+  try { localZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"; } catch (e) {}
+  var showLocal = false;
+
+  function fmt(iso, zone) {
+    try {
+      return new Intl.DateTimeFormat("en-US", {
+        hour: "numeric", minute: "2-digit", timeZone: zone
+      }).format(new Date(iso));
+    } catch (e) { return ""; }
+  }
+  function dayLabel(iso, zone) {
+    try {
+      return new Intl.DateTimeFormat("en-US", {
+        weekday: "short", month: "short", day: "numeric", timeZone: zone
+      }).format(new Date(iso));
+    } catch (e) { return ""; }
+  }
+  function zoneAbbr(iso, zone) {
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: zone, timeZoneName: "short"
+      }).formatToParts(new Date(iso));
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].type === "timeZoneName") return parts[i].value;
+      }
+    } catch (e) {}
+    return "";
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function render() {
+    var primary = showLocal ? localZone : ET;
+    var secondary = showLocal ? ET : localZone;
+    var sameZone = primary === secondary;
+    var html = "";
+
+    PROGRAM.forEach(function (d) {
+      html += '<div class="day"><h3>' + esc(d.day) + "</h3>";
+      d.sessions.forEach(function (s) {
+        var mainTime = fmt(s.start, primary) + "–" + fmt(s.end, primary) +
+                       " " + zoneAbbr(s.start, primary);
+        var sub = "";
+        if (!sameZone) {
+          // If the local day differs from the Eastern day, say which day it is.
+          var subDay = dayLabel(s.start, secondary) !== dayLabel(s.start, primary)
+            ? dayLabel(s.start, secondary) + ", " : "";
+          sub = '<span class="secondary">' + esc(subDay) +
+                fmt(s.start, secondary) + " " + zoneAbbr(s.start, secondary) + "</span>";
+        }
+        html += '<div class="slot">' +
+          '<div class="slot-time">' + esc(mainTime) + sub + "</div>" +
+          "<div>" +
+            "<h4>" + esc(s.title) +
+              (s.tbd ? '<span class="tbd">Panelists being confirmed</span>' : "") +
+            "</h4>" +
+            "<p>" + esc(s.blurb) + "</p>" +
+            (s.who ? '<p class="who">' + esc(s.who) + "</p>" : "") +
+          "</div>" +
+        "</div>";
+      });
+      html += "</div>";
+    });
+
+    document.getElementById("program-out").innerHTML = html;
+    document.getElementById("btn-et").setAttribute("aria-pressed", String(!showLocal));
+    document.getElementById("btn-local").setAttribute("aria-pressed", String(showLocal));
+  }
+
+  // Hero: always show the visitor's own time for day one.
+  var heroEl = document.getElementById("tz-hero");
+  if (localZone === ET) {
+    document.getElementById("tz-label").textContent = "You are on Eastern time";
+    heroEl.textContent = "Same as above";
+  } else {
+    heroEl.textContent = fmt("2027-01-14T15:00:00Z", localZone) + "–" +
+                         fmt("2027-01-14T18:00:00Z", localZone) + " " +
+                         zoneAbbr("2027-01-14T15:00:00Z", localZone);
+  }
+
+  document.getElementById("tz-detected").textContent = "Detected: " + localZone;
+  document.getElementById("btn-et").addEventListener("click", function () {
+    showLocal = false; render();
+  });
+  document.getElementById("btn-local").addEventListener("click", function () {
+    showLocal = true; render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
