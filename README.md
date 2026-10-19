@@ -3,7 +3,7 @@
 Site for the International Network for Engineering Studies workshop,
 14–15 January 2027, online.
 
-**Live site:** https://REPLACE-USERNAME.github.io/ines-workshop-2027/
+**Live site:** https://rhearty1.github.io/ines-workshop-2027/
 
 ## Files
 
@@ -20,7 +20,7 @@ git init
 git add .
 git commit -m "INES Workshop 2027 site"
 git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/ines-workshop-2027.git
+git remote add origin https://github.com/rhearty1/ines-workshop-2027.git
 git push -u origin main
 ```
 
