@@ -45,7 +45,7 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes'; open sftp://$DEPLOY_USER@$DEPLOY_HOST; mirror -R --dry-run --verbose $EXCLUDES ./ $DEPLOY_PATH/"
+          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes'; set net:max-retries 2; set net:timeout 20; set cmd:fail-exit yes; open -u $DEPLOY_USER, sftp://$DEPLOY_HOST; mirror -R --dry-run --verbose $EXCLUDES ./ $DEPLOY_PATH/"
 
       - name: Deploy
         env:
@@ -53,7 +53,7 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes'; open sftp://$DEPLOY_USER@$DEPLOY_HOST; mirror -R --verbose $EXCLUDES ./ $DEPLOY_PATH/"
+          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes'; set net:max-retries 2; set net:timeout 20; set cmd:fail-exit yes; open -u $DEPLOY_USER, sftp://$DEPLOY_HOST; mirror -R --verbose $EXCLUDES ./ $DEPLOY_PATH/"
 
       - name: Remove the key from the runner
         if: always()
@@ -63,6 +63,14 @@ jobs:
 # The DreamHost account is SFTP-only: it authenticates with the key but will
 # not run remote commands, and rsync has to start a copy of itself on the far
 # end. lftp's mirror works over the SFTP subsystem alone, so it does not.
+#
+# WHY "open -u $DEPLOY_USER," AND NOT "open sftp://user@host"
+# Without a password in the open command, lftp tries to prompt for one. On a
+# runner there is no terminal, so it reports "GetPass() failed -- assume
+# anonymous login" and then fails with "Login failed: Password required".
+# Passing an empty password after the comma stops it asking. Authentication
+# still happens entirely through the key in connect-program; the empty
+# password is never used.
 #
 # WHY THE lftp COMMAND IS ALL ON ONE LINE
 # lftp -c treats every newline as the end of a command. Spreading the mirror
