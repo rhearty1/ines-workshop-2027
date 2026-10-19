@@ -6,6 +6,8 @@
 <title>INES Workshop 2027 — Engineering and Existential Threats</title>
 <meta name="description" content="A two-day online workshop of the International Network for Engineering Studies, January 14–15, 2027, 10:00–13:00 US Eastern both days. Free to attend." />
 <link rel="canonical" href="https://rhearty1.github.io/ines-workshop-2027/" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
 
 <!-- Open Graph / social preview. Replace the URL and add assets/social-card.png (1200x675) when you have one. -->
 <meta property="og:site_name" content="International Network for Engineering Studies" />
@@ -24,7 +26,7 @@
   "endDate": "2027-01-15T13:00:00-05:00",
   "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
-  "location": { "@type": "VirtualLocation", "url": "https://REPLACE-USERNAME.github.io/ines-workshop-2027/" },
+  "location": { "@type": "VirtualLocation", "url": "https://rhearty1.github.io/ines-workshop-2027/" },
   "organizer": { "@type": "Organization", "name": "International Network for Engineering Studies", "url": "https://inesweb.org" },
   "isAccessibleForFree": true
 }
@@ -90,24 +92,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .shell { max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
 .prose { max-width: var(--measure); }
 
-/* ---------- masthead ---------- */
+/* ---------- masthead ----------
+   White, not --card: the INES logo file has a white background, so a warm
+   background would show a white rectangle behind it. */
 .masthead {
-  background: var(--card);
+  background: #ffffff;
   border-bottom: 1px solid var(--rule);
 }
 .masthead .shell {
-  display: flex; align-items: baseline; gap: 16px;
-  flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px;
+  display: flex; align-items: center; gap: 16px;
+  flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px;
 }
-.wordmark {
-  font-family: Roboto, sans-serif; font-weight: 700;
-  letter-spacing: .14em; font-size: 20px;
-  color: var(--terracotta); text-decoration: none;
+.wordmark { display: block; line-height: 0; }
+.wordmark img {
+  height: 48px; width: auto; display: block;
 }
-.wordmark span {
-  display: block; font-size: 10px; letter-spacing: .1em;
-  font-weight: 400; color: var(--slate-light);
-}
+@media (max-width: 520px) { .wordmark img { height: 38px; } }
 .masthead nav { margin-left: auto; display: flex; gap: 22px; flex-wrap: wrap; }
 .masthead nav a {
   color: var(--slate); text-decoration: none; font-size: 15px;
@@ -260,7 +260,11 @@ footer .shell { display: flex; justify-content: space-between; gap: 24px; flex-w
 
 <header class="masthead">
   <div class="shell">
-    <a class="wordmark" href="./">INES<span>International Network for Engineering Studies</span></a>
+    <a class="wordmark" href="./">
+      <img src="assets/ines-logo.png"
+           alt="International Network for Engineering Studies"
+           width="1172" height="290" />
+    </a>
     <nav>
       <a href="#program">Program</a>
       <a href="#attend">Attend</a>
@@ -544,15 +548,18 @@ var PROGRAM = [
     document.getElementById("btn-local").setAttribute("aria-pressed", String(showLocal));
   }
 
-  // Hero: always show the visitor's own time for day one.
+  // Hero: always show day one in the visitor's own clock, with the date if
+  // the conversion pushes them onto the next day (Tokyo, Sydney).
   var heroEl = document.getElementById("tz-hero");
+  var heroDay = dayLabel("2027-01-14T15:00:00Z", localZone);
+  var etDay = dayLabel("2027-01-14T15:00:00Z", ET);
+  heroEl.textContent =
+    (heroDay !== etDay ? heroDay + ", " : "") +
+    fmt("2027-01-14T15:00:00Z", localZone) + "–" +
+    fmt("2027-01-14T18:00:00Z", localZone) + " " +
+    zoneAbbr("2027-01-14T15:00:00Z", localZone);
   if (localZone === ET) {
-    document.getElementById("tz-label").textContent = "You are on Eastern time";
-    heroEl.textContent = "Same as above";
-  } else {
-    heroEl.textContent = fmt("2027-01-14T15:00:00Z", localZone) + "–" +
-                         fmt("2027-01-14T18:00:00Z", localZone) + " " +
-                         zoneAbbr("2027-01-14T15:00:00Z", localZone);
+    document.getElementById("tz-label").textContent = "Your time zone (Eastern)";
   }
 
   document.getElementById("tz-detected").textContent = "Detected: " + localZone;

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Register — INES Workshop 2027</title>
 <meta name="description" content="Register for the INES Workshop, 14–15 January 2027, online and free to attend." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -29,13 +30,12 @@ a { color: var(--amber); }
 a:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
 .shell { max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
 
-.masthead { background: var(--card); border-bottom: 1px solid var(--rule); }
-.masthead .shell { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 14px 20px; }
-.wordmark {
-  font-family: Roboto, sans-serif; font-weight: 700; letter-spacing: .14em;
-  font-size: 20px; color: var(--terracotta); text-decoration: none;
-}
-.wordmark span { display: block; font-size: 10px; letter-spacing: .1em; font-weight: 400; color: var(--slate-light); }
+/* White, not --card: the INES logo file has a white background. */
+.masthead { background: #ffffff; border-bottom: 1px solid var(--rule); }
+.masthead .shell { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 12px 20px; }
+.wordmark { display: block; line-height: 0; }
+.wordmark img { height: 48px; width: auto; display: block; }
+@media (max-width: 520px) { .wordmark img { height: 38px; } }
 .masthead nav { margin-left: auto; display: flex; gap: 22px; flex-wrap: wrap; }
 .masthead nav a { color: var(--slate); text-decoration: none; font-size: 15px; }
 .masthead nav a:hover { color: var(--terracotta); }
@@ -57,7 +57,11 @@ footer a { color: #fff; }
 
 <header class="masthead">
   <div class="shell">
-    <a class="wordmark" href="./">INES<span>International Network for Engineering Studies</span></a>
+    <a class="wordmark" href="./">
+      <img src="assets/ines-logo.png"
+           alt="International Network for Engineering Studies"
+           width="1172" height="290" />
+    </a>
     <nav>
       <a href="index.html#program">Program</a>
       <a href="index.html#lightning">Lightning talks</a>
@@ -79,8 +83,6 @@ footer a { color: #fff; }
 <main>
   <div class="shell">
     <div class="formwrap">
-      <!-- Replace REGISTRATION_FORM_ID with the id from your registration form's
-           live link, keeping ?embedded=true on the end. -->
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfZqWWB9a-bmuOe6tDL9aciHSm_w54Pv0Zdc3nGVNN9mXabmA/viewform?embedded=true"
         title="INES Workshop 2027 registration form"
