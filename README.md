@@ -12,39 +12,6 @@ Site for the International Network for Engineering Studies workshop,
 - `ines_registration_form.gs` — Apps Script that builds the registration form. Run once, then delete or keep for reference. Not served to visitors.
 - `.nojekyll` — tells GitHub Pages to serve the files as-is instead of running Jekyll over them. Without it, any folder starting with an underscore is silently dropped.
 
-## Publishing it
-
-```
-# from inside this folder
-git init
-git add .
-git commit -m "INES Workshop 2027 site"
-git branch -M main
-git remote add origin https://github.com/rhearty1/ines-workshop-2027.git
-git push -u origin main
-```
-
-Then on GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main`, folder `/ (root)` → Save.**
-The site appears at `https://YOUR-USERNAME.github.io/ines-workshop-2027/` within a minute or two.
-
-Every later `git push` republishes. There is no build step.
-
-## Before you publish, replace these
-
-Search the files for each string:
-
-| Placeholder | Where | What to put |
-|---|---|---|
-| `REPLACE-USERNAME` | `index.html`, `README.md`, `.gs` | your GitHub username |
-| `REGISTRATION_FORM_ID` | `register.html` (2 places) | the id from the registration form's live link |
-| `REPLACE@example.edu` | `index.html` footer | the contact address |
-
-Check with:
-
-```
-grep -rn "REPLACE\|REGISTRATION_FORM_ID" .
-```
-
 ## Editing the program
 
 Open `index.html`, scroll to `var PROGRAM`. Each session is one object:
