@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:ines-workshop-2027-day1@inesweb.org
-DTSTAMP:20261021T211643Z
+DTSTAMP:20261021T212414Z
 DTSTART:20270114T150000Z
 DTEND:20270114T180000Z
 SUMMARY:INES Workshop 2027 - Day 1: Where are we?
@@ -14,7 +14,7 @@ DESCRIPTION:Day 1 of the INES Workshop, online.\n\n10:00 Best Paper Award\
  rn. Joining link to follow by email.\n\nProgram: https://workshop27.inesw
  eb.org/
 URL:https://workshop27.inesweb.org/
-LOCATION:Online
+LOCATION:Online via Zoom - joining link emailed to registrants
 ORGANIZER;CN=Ryan Hearty:mailto:rhearty1@jhu.edu
 STATUS:CONFIRMED
 TRANSP:OPAQUE
@@ -26,7 +26,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ines-workshop-2027-day2@inesweb.org
-DTSTAMP:20261021T211643Z
+DTSTAMP:20261021T212414Z
 DTSTART:20270115T150000Z
 DTEND:20270115T180000Z
 SUMMARY:INES Workshop 2027 - Day 2: What can we do?
@@ -35,7 +35,7 @@ DESCRIPTION:Day 2 of the INES Workshop, online.\n\n10:00 "What can we do?"
  t next?" closing discussion\n\nAll times US Eastern. Joining link to foll
  ow by email.\n\nProgram: https://workshop27.inesweb.org/
 URL:https://workshop27.inesweb.org/
-LOCATION:Online
+LOCATION:Online via Zoom - joining link emailed to registrants
 ORGANIZER;CN=Ryan Hearty:mailto:rhearty1@jhu.edu
 STATUS:CONFIRMED
 TRANSP:OPAQUE
