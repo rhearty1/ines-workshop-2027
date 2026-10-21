@@ -153,9 +153,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   margin: 0; font-family: Roboto, sans-serif;
   font-size: 1.22rem; font-weight: 500; color: #fff;
 }
+/* Quiet link under the dates: the action belongs beside the information. */
+.cal-link { margin: 16px 0 0; font-size: 15px; }
+.cal-link a {
+  color: #9fd0ea; text-decoration: none;
+  border-bottom: 1px solid rgba(159,208,234,.45); padding-bottom: 1px;
+}
+.cal-link a:hover { color: #fff; border-bottom-color: #fff; }
+
 .hero-actions {
   display: flex; gap: 12px; flex-wrap: wrap;
-  padding: 28px 0 56px;
+  padding: 22px 0 56px;
 }
 
 .btn {
@@ -302,6 +310,10 @@ footer .shell { display: flex; justify-content: space-between; gap: 24px; flex-w
         <dd>Online · Free for members</dd>
       </div>
     </dl>
+
+    <p class="cal-link">
+      <a href="ines-workshop-2027.ics" download>Add both days to your calendar</a>
+    </p>
 
     <div class="hero-actions">
       <a class="btn btn-primary" href="register.html">Register</a>
