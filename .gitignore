@@ -1,0 +1,5 @@
+# Never publish anything with the Zoom join link in it. This repo deploys
+# straight to a public website, so a file committed here is public at once.
+# The private calendar file goes to vetted registrants by email only.
+*PRIVATE*
+*-private.*
