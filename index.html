@@ -234,6 +234,19 @@ section p + p { margin-top: 1em; }
   vertical-align: 2px;
 }
 
+/* Full citations for the prize papers, so people can read them beforehand. */
+.papers { list-style: none; padding: 0; margin: 14px 0 0; max-width: 62ch; }
+.papers li { font-size: 14.5px; line-height: 1.55; }
+.papers li + li {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule);
+}
+.papers .award {
+  display: inline-block; font-size: 12px; font-family: Roboto, sans-serif;
+  background: var(--tan); color: var(--slate); padding: 2px 8px; margin-right: 8px;
+  vertical-align: 1px;
+}
+.papers a { color: var(--amber); word-break: break-word; }
+
 /* ---------- call-to-action panels ---------- */
 .panel {
   background: var(--card); border: 1px solid var(--rule);
@@ -441,9 +454,34 @@ var PROGRAM = [
       {
         start: "2027-01-14T15:00:00Z", end: "2027-01-14T16:00:00Z",
         title: "INES Best Paper Award",
-        blurb: "The 2026 prize winners present their work, with time for questions.",
-        who: "Kristin Bartlett (winner); Antoine Bouzin and Marwa Koheji (commended)",
-        tbd: false
+        blurb: "The 2026 prize winners present their work, with time for questions. The papers are below if you would like to read them beforehand.",
+        tbd: false,
+        papers: [
+          {
+            award: "Winner",
+            author: "Bartlett, Kristin A.",
+            title: "The Politics of the Purdue Spatial Visualization Test of Rotations (PSVT:R) and Its Use in Engineering Education",
+            journal: "Engineering Studies",
+            detail: "16, no. 1 (2024): 56\u201377",
+            doi: "https://doi.org/10.1080/19378629.2023.2297958"
+          },
+          {
+            award: "Commended",
+            author: "Bouzin, Antoine",
+            title: "Negotiating Engineering and Activism: French Environmentalist Engineers Conforming to, Shifting, and Overstepping Professional Boundaries",
+            journal: "Engineering Studies",
+            detail: "16, no. 2 (2024): 133\u201354",
+            doi: "https://doi.org/10.1080/19378629.2023.2286957"
+          },
+          {
+            award: "Commended",
+            author: "Koheji, Marwa",
+            title: "On Cooling and Comfort: The Engineering of Thermal Spaces in Bahrain",
+            journal: "Engineering Studies",
+            detail: "17, no. 1 (2025): 30\u201350",
+            doi: "https://doi.org/10.1080/19378629.2025.2460213"
+          }
+        ]
       },
       {
         start: "2027-01-14T16:00:00Z", end: "2027-01-14T17:00:00Z",
@@ -524,6 +562,10 @@ var PROGRAM = [
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
+  // Same, plus quotes, for anything going inside an HTML attribute.
+  function escAttr(s) {
+    return esc(s).replace(/"/g, "&quot;");
+  }
 
   function render() {
     var primary = showLocal ? localZone : ET;
@@ -552,6 +594,14 @@ var PROGRAM = [
             "</h4>" +
             "<p>" + esc(s.blurb) + "</p>" +
             (s.who ? '<p class="who">' + esc(s.who) + "</p>" : "") +
+            (s.papers ? '<ul class="papers">' + s.papers.map(function (pa) {
+              // An author ending in an initial already carries its period.
+              var authSep = /\.$/.test(pa.author) ? " " : ". ";
+              return '<li><span class="award">' + esc(pa.award) + "</span>" +
+                     esc(pa.author) + authSep + "&ldquo;" + esc(pa.title) + ".&rdquo; " +
+                     "<em>" + esc(pa.journal) + "</em> " + esc(pa.detail) + ". " +
+                     '<a href="' + escAttr(pa.doi) + '">' + esc(pa.doi) + "</a></li>";
+            }).join("") + "</ul>" : "") +
           "</div>" +
         "</div>";
       });
