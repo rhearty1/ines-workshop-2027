@@ -18,14 +18,15 @@
   --paper: #f9f6f3; --card: #fffbf6; --tan: #f2e8dd;
   --ink: #222222; --body: #4a4a4a; --rule: #e3dbd2;
   --shell: 1040px;
+  --radius: 8px; --card-shadow: 0 0 8px 1px #cccccc; --pill: 36px;
 }
 *, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0; background: var(--paper); color: var(--body);
-  font-family: "Open Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.65;
+  font-family: "Open Sans", system-ui, sans-serif; font-size: 18px; line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2 { font-family: Roboto, system-ui, sans-serif; color: var(--ink); line-height: 1.15; margin: 0; }
+h1, h2 { font-family: Roboto, system-ui, sans-serif; color: var(--ink); line-height: 1.15; margin: 0; font-weight: 400; }
 a { color: var(--amber); }
 a:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
 .shell { max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
@@ -34,18 +35,24 @@ a:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
 .masthead { background: #ffffff; border-bottom: 1px solid var(--rule); }
 .masthead .shell { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 12px 20px; }
 .wordmark { display: block; line-height: 0; }
-.wordmark img { height: 48px; width: auto; display: block; }
-@media (max-width: 520px) { .wordmark img { height: 38px; } }
+.wordmark img { height: 80px; width: auto; display: block; }
+@media (max-width: 520px) { .wordmark img { height: 54px; } }
 .masthead nav { margin-left: auto; display: flex; gap: 22px; flex-wrap: wrap; }
-.masthead nav a { color: var(--slate); text-decoration: none; font-size: 15px; }
-.masthead nav a:hover { color: var(--terracotta); }
+.masthead nav a {
+  color: var(--body); text-decoration: none; font-size: 18px;
+  padding-bottom: 3px; border-bottom: 2px solid transparent;
+}
+.masthead nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 
 .banner { background: var(--slate-deep); color: #fff; padding: 48px 0; }
-.banner h1 { color: #fff; font-size: clamp(1.9rem, 4.4vw, 2.7rem); font-weight: 700; }
+.banner h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 2.9rem); font-weight: 700; }
 .banner p { max-width: 56ch; margin: 14px 0 0; color: #d9e3ea; }
 
 main { padding: 48px 0 72px; }
-.formwrap { background: var(--card); border: 1px solid var(--rule); padding: 10px; }
+.formwrap {
+  background: #fff; border: 0;
+  border-radius: var(--radius); box-shadow: var(--card-shadow); padding: 10px;
+}
 iframe { width: 100%; min-height: 1200px; border: 0; display: block; }
 .fallback { max-width: 62ch; margin-top: 26px; font-size: 15.5px; color: var(--slate); }
 
@@ -57,7 +64,7 @@ footer a { color: #fff; }
 
 <header class="masthead">
   <div class="shell">
-    <a class="wordmark" href="./">
+    <a class="wordmark" href="https://inesweb.org/">
       <img src="assets/ines-logo.png"
            alt="International Network for Engineering Studies"
            width="1172" height="290" />
