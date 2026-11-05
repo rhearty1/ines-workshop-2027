@@ -245,6 +245,12 @@ section p + p { margin-top: 1em; }
   vertical-align: 2px;
 }
 
+/* Panel line-ups longer than a name or two, as a list rather than a run-on. */
+.who-list { list-style: none; padding: 0; margin: 10px 0 0; max-width: 58ch; }
+.who-list li { font-size: 15.5px; line-height: 1.5; }
+.who-list li + li { margin-top: 4px; }
+.who-list .name { color: var(--amber); }
+
 /* Full citations for the prize papers, so people can read them beforehand. */
 .papers { list-style: none; padding: 0; margin: 14px 0 0; max-width: 62ch; }
 .papers li { font-size: 14.5px; line-height: 1.55; }
@@ -524,8 +530,14 @@ var PROGRAM = [
         start: "2027-01-15T16:00:00Z", end: "2027-01-15T17:00:00Z",
         title: "What can we do?",
         blurb: "A second panel, with colleagues from engineering practice and engineering education, turning from diagnosis to action.",
-        who: "Panelists to be announced",
-        tbd: true
+        people: [
+          { name: "Sergio Guillen", affil: "University of Virginia" },
+          { name: "Allison Marsh", affil: "University of South Carolina" },
+          { name: "Marko Monteiro", affil: "University of Campinas (UNICAMP)" },
+          { name: "Jörg Niewöhner", affil: "Technical University of Munich" },
+          { name: "Gwen Ottinger", affil: "Drexel University" }
+        ],
+        tbd: false
       },
       {
         start: "2027-01-15T17:00:00Z", end: "2027-01-15T18:00:00Z",
@@ -605,6 +617,10 @@ var PROGRAM = [
             "</h4>" +
             "<p>" + esc(s.blurb) + "</p>" +
             (s.who ? '<p class="who">' + esc(s.who) + "</p>" : "") +
+            (s.people ? '<ul class="who-list">' + s.people.map(function (pe) {
+              return '<li><span class="name">' + esc(pe.name) + "</span>, " +
+                     esc(pe.affil) + "</li>";
+            }).join("") + "</ul>" : "") +
             (s.papers ? '<ul class="papers">' + s.papers.map(function (pa) {
               // An author ending in an initial already carries its period.
               var authSep = /\.$/.test(pa.author) ? " " : ". ";
